@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@doabit/semantic-ui-sass": "^2.4.5",
+    "autoprefixer": "^10.4.14",
+    "jquery": "^3.7.0",
+    "popper.js": "^1.16.1",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2"
+  }
+}
