@@ -8,3 +8,10 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: always
 Metrics/BlockLength:
   Max: 120
+Layout/IndentationStyle:
+  Enabled: true
+  IndentationWidth: 2
+  EnforcedStyle: spaces
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: indented_internal_methods

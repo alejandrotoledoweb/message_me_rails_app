@@ -1,1 +1,21 @@
-<h2>this is the Session layout page</h2>
+
+<h1>Welcome to the chatRoom</h1>
+<h2>Log in</h2>
+<section class="flex flex-row justify-around">
+
+<%= form_for login_path do %>
+  <p>
+    <%= label_tag :username %><br />
+    <%= text_field_tag :username, params[:username] %>
+  </p>
+  <p>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </p>
+  <p class="bg-orange-500 mt-4"><%= submit_tag "Log in", class: "cursor-pointer py-2 px-4 bg-gray w-full" %></p>
+<% end %>
+
+<div>
+   <span class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-500 md:hover:bg-gray md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-slate md:dark:hover:bg-gray dark:border-gray-700"><%= link_to 'Sign Up', login_path%></span>
+</div>
+</section>

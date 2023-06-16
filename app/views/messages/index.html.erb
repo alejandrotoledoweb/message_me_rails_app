@@ -1,0 +1,9 @@
+
+<% @messages.each do |message| %>
+  <div class="flex flex-col gap-2 w-full">
+
+    <p ><em class="font-semibold"><%= message.user.username  %></em> <span class="font-normal ">:<%= message.description %></span></p>
+
+  </div>
+<% end %>
+
