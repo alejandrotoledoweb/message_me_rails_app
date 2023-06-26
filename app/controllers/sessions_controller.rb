@@ -1,20 +1,25 @@
 class SessionsController < ApplicationController
+  before_action :find_user, only: [:create]
   def new; end
 
   def create
-    user = User.find_by(username: params[:username])
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_url, notice: 'Logged in!'
+    if @user&.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to root_url
+      flash[:notice] = 'Logged in!'
     else
-      flash.now.alert = 'Invalid email or password'
-      render 'new'
+      flash[:alert] = 'Invalid username or password'
+      redirect_to login_path
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = 'Logged out!'
+    flash.now[:success] = 'Logged out!'
     redirect_to root_url
+  end
+
+  def find_user
+    @user = User.find_by(username: params[:username])
   end
 end

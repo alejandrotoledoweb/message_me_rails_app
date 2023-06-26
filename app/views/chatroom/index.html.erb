@@ -1,3 +1,4 @@
+
 <section class="bg-neutral-50 px-6 py-10 text-center text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200 flex flex-col items-center ">
   <h1 class="mb-6 text-5xl font-bold">Coffee chat time</h1>
   <h3 class="mb-8 text-3xl font-bold">Welcome to chatRoom</h3>
@@ -8,10 +9,15 @@
     <div class="h-40">
       <%= render template: 'messages/index' %>
     </div>
-    <div class="grid grid-cols-8 gap-4">
-      <input type="text" class="bg-gray-100 text-slate-500 border border-slate-400 h-10 col-span-6" placeholder="Enter a new message...">
-      <button class="w-20 bg-orange-600 border border-x-40 h-10 col-span-2">Send</button>
-    </div>
+      <%= form_with(model: @message, url: messages_path) do |form| %>
+        <div class="grid grid-cols-12 gap-4 w-full">
+
+          <%= form.text_field :description, required: true, class: "col-span-9 h-8" %>
+
+          <%= form.submit "Send", class: "col-span-2 bg-orange-400 px-8 h-8" %>
+        </div>
+      <% end %>
+
     <div class="mt-6">extra content, input section</div>
   </div>
   <div class="col-span-2 border border-gary-300 pl-2">user section</div>

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'signup', to: 'users#new'
   get 'logout', to: 'sessions#destroy'
-  get 'messages', to: 'messages#index'
+  resources :messages, only: %i[create index]
+
+  mount ActionCable.server, at: '/cable'
 end
